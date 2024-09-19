@@ -36,7 +36,4 @@ class Stack<T> {
         return sb.toString();
     }
 
-
-
-
 } // end class StackX
