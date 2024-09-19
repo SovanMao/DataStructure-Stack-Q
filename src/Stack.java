@@ -26,6 +26,7 @@ class Stack<T> {
             System.out.println(stackArray[i]);
         }
     }
+
     // toString method
     public String toString() {
         StringBuilder sb = new StringBuilder();
