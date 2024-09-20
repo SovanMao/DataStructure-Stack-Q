@@ -4,38 +4,45 @@ public class Main {
 
     public static void main(String[] var0) {
 
-//        Stack var1 = new Stack(10);
-//        var1.push(20L);
-//        var1.push(40L);
-//        var1.push(60L);
-//        var1.push(80L);
-//        var1.push(100L);
-//
-//        while(!var1.isEmpty()) {
-//            long var2 = var1.pop();
-//            System.out.print(var2);
-//            System.out.print(" ");
+
+//        Test Stack
+
+//        Stack<Integer> stack = new Stack<>(5);
+//        stack.push(10);
+//        stack.push(20);
+//        stack.push(30);
+//        System.out.println("Stack after pushes: " + stack);
+//        System.out.println("Stack peek: " + stack.peek());
+//        System.out.println("Stack pop: " + stack.pop());
+//        System.out.println("Stack after pop: " + stack);
+//        stack.display();
+//        System.out.println("toString : " + stack.toString());
+
 //        }
-//
+
 //        System.out.println(" ");
 
-//--------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
 
-//        Queue myqueue = new Queue(5);
-//        myqueue.insert(1);
-//        myqueue.insert(2);
-//        myqueue.insert(3);
-//        myqueue.insert(4);
-//        myqueue.insert(5);
-//
-//        while (!myqueue.isEmpty()) {   // remove and display all items
-//            long n = myqueue.remove(); //  (40, 50, 60, 70, 80)
-//            System.out.print(n + " ");
-//        }
-//        System.out.println(" ");
-//        System.out.println(myqueue.peekFront());
+//        Test Queue
 
-//--------------------------------------------------------------------------------------------------------
+//        Queue<String> queue = new Queue<>(5);
+//        queue.insert("Apple");
+//        queue.insert("Banana");
+//        queue.insert("Cherry");
+//        System.out.println("Queue after inserts: " + queue);
+//        System.out.println("Queue peek front: " + queue.peekFront());
+//        System.out.println("Queue remove: " + queue.remove());
+//        System.out.println("Queue after remove: " + queue);
+//        queue.display();
+//        System.out.println("toString : " + queue.toString());
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+//        Test PriorityQueue
 
 //        PriorityQueue thePQ = new PriorityQueue(5);
 //        thePQ.insert(30);
@@ -50,12 +57,30 @@ public class Main {
 //        }
 //        System.out.println(" ");
 
-//--------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
 
-        String inputString = "Hello";
-        System.out.println("Original string: " + inputString);
-        System.out.println("Reversed string: " + StringReverser.reverse(inputString));
+//        Test StringReverser
 
+//        String inputString = "Hello";
+//        System.out.println("Original string: " + inputString);
+//        System.out.println("Reversed string: " + StringReverser.reverse(inputString));
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+
+//        Test DelimiterChecker
+
+//        System.out.println("\n=== DelimiterChecker Test ===");
+//        String validString = "{[()]}";
+//        System.out.println("Delimiter check for " + validString + ": " + DelimiterChecker.check(validString));
+//        String invalidString = "{[(])}";
+//        System.out.println("Delimiter check for " + invalidString + ": " + DelimiterChecker.check(invalidString));
+//        String mixedString = "Hello (this is a {test [string]})";
+//        System.out.println("Delimiter check for mixed string: " + mixedString + ": " + DelimiterChecker.check(mixedString));
+//        String unbalancedString = "((()))";
+//        System.out.println("Delimiter check for unbalanced string: " + unbalancedString + ": " + DelimiterChecker.check(unbalancedString));
 
     }
 }
