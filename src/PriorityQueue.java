@@ -1,45 +1,80 @@
-class PriorityQueue {
-    // array in sorted order, from max at 0 to min at size-1
+class PriorityQueue<T> {
     private int maxSize;
-    private long[] queArray;
+    private T[] queueArray;
+    private int[] priorityArray;
     private int nItems;
 
-    public PriorityQueue (int s) {         // constructor
-        maxSize = s;
-        queArray = new long[maxSize];
+    public PriorityQueue(int arraySize) {  // Constructor
+        maxSize = arraySize;
+        queueArray = (T[]) new Object[maxSize];
+        priorityArray = new int[maxSize];
         nItems = 0;
     }
 
-    public void insert(long item) {   // insert item
-        int j;
-
-        if (nItems == 0)                       // if no items,
-            queArray[nItems++] = item;         // insert at 0
-        else {                                 // if items,
-            for (j=nItems-1; j>=0; j--) {      // start at end,
-                if (item > queArray[j])        // if new item larger,
-                    queArray[j+1] = queArray[j]; // shift upward
-                else                           // if smaller,
-                    break;                     // done shifting
+    public void insert(T newItem, int priorityValue) {  // Insert item with priority
+        if (nItems == maxSize) {
+            System.out.println("Priority queue is full");
+            return;
+        }
+        int i;
+        // If the queue is empty, directly insert the first item
+        if (nItems == 0) {
+            queueArray[nItems] = newItem;
+            priorityArray[nItems] = priorityValue;
+            nItems++;
+        } else {
+            
+            for (i = nItems - 1; i >= 0; i--) {
+                if (priorityValue > priorityArray[i]) {
+                    // Shift items to the right to make space for the new item
+                    queueArray[i + 1] = queueArray[i];
+                    priorityArray[i + 1] = priorityArray[i];
+                } else {
+                    break;
+                }
             }
-            queArray[j+1] = item;            // insert it
+            //Inserting new item
+            queueArray[i + 1] = newItem;
+            priorityArray[i + 1] = priorityValue;
             nItems++;
         }
-    } // end insert()
-
-    public long remove() {            // remove minimum item
-        return queArray[--nItems];
     }
 
-    public long peekMin() {           // peek at minimum item
-        return queArray[nItems-1];
+    public T remove() {  // Remove item with highest priority
+        if (nItems == 0) {
+            System.out.println("Priority queue is empty");
+            return null;
+        }
+        return queueArray[--nItems]; // Decrement nItems and then return the item
     }
 
-    public boolean isEmpty() {        // true if queue is empty
-        return (nItems == 0);
+    public T peekFront() {  // Peek at front of queue
+        if (nItems == 0) {
+            System.out.println("Priority queue is empty");
+            return null;
+        }
+        return queueArray[nItems - 1];
     }
 
-    public boolean isFull() {         // true if queue is full
-        return (nItems == maxSize);
+    public T peekRear() {  // Peek at rear of queue
+        if (nItems == 0) {
+            System.out.println("Priority queue is empty");
+            return null;
+        }
+        return queueArray[0];
     }
-} // end class PriorityQ
+
+    public String toString() {  // Return string representation of queue
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < nItems; i++) {
+            sb.append("(").append(queueArray[i]).append(", ").append(priorityArray[i]).append(") ");
+        }
+        return sb.toString();
+    }
+
+    public void display() {  // Display all items in the queue
+        for (int i = 0; i < nItems; i++) {
+            System.out.println("(" + queueArray[i] + ", " + priorityArray[i] + ")");
+        }
+    }
+}
