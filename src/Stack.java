@@ -21,6 +21,11 @@ class Stack<T> {
         return stackArray[top];
     }
 
+    public boolean isEmpty() {          // true if stack is empty
+        return (top == -1);
+    }
+
+
     // Method to display all elements in the stack from top to bottom
     public void display() {
         for (int i = top; i >= 0; i--) {
