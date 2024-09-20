@@ -1,18 +1,20 @@
 public class StringReverser {
     public static String reverse(String input) {
-        Stack stack = new Stack(input.length());
-        for (char ch : input.toCharArray()) {
-            stack.push(ch);
-        }
-        StringBuilder reversed = new StringBuilder();
-        while (true) {
-            try {
-                reversed.append(stack.pop());
-            } catch (IllegalStateException e) {
-                break;
-            }
-        }
-        return reversed.toString();
+        // Stack to hold characters of the string
+        Stack<String> stack = new Stack<>();
 
+        // Push each character of the input string into the stack
+        for (int i = 0; i < input.length(); i++) {
+            stack.push(String.valueOf(input.charAt(i)));
+        }
+
+        // Build the reversed string by popping characters from the stack
+        StringBuilder reversedString = new StringBuilder();
+        while (!stack.isEmpty()) {
+            reversedString.append(stack.pop());
+        }
+
+        // Return the reversed string
+        return reversedString.toString();
     }
 }
